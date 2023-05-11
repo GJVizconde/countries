@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
     "country",
     {
       id: {
-        type: DataTypes.UUID,
+        type: DataTypes.STRING(3),
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
         //   isUrl:true
         // } //! Para validad si es URL, se activara mas tarde
       },
-      continents: {
+      continent: {
         type: DataTypes.STRING,
         allowNull: false,
       },
