@@ -1,8 +1,9 @@
+const createActivityHandler = require("../handlers/activity/createActivityHandler");
+
 const { Router } = require("express");
-const createActivity = require("../controllers/createActivity");
 
 const activityRouter = Router();
 
-activityRouter.get("/", createActivity);
+activityRouter.post("/", createActivityHandler);
 
 module.exports = activityRouter;
