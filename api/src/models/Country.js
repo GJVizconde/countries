@@ -18,9 +18,9 @@ module.exports = (sequelize) => {
       flags: {
         type: DataTypes.STRING,
         allowNull: false,
-        // validate: {
-        //   isUrl:true
-        // } //! Para validad si es URL, se activara mas tarde
+        validate: {
+          isUrl: true,
+        }, //! Para validad si es URL, se activara mas tarde
       },
       continent: {
         type: DataTypes.STRING,

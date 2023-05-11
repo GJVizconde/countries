@@ -1,9 +1,22 @@
 const { Activity } = require("../../db");
 
-const createActivity = async (activity) => {
-  const newUser = await Activity.create(activity);
+const createActivity = async ({
+  name,
+  difficulty,
+  duration,
+  season,
+  countries,
+}) => {
+  const newActivity = await Activity.create({
+    name,
+    difficulty,
+    duration,
+    season,
+  });
 
-  return newUser;
+  newActivity.addCountries(countries);
+
+  return newActivity;
 };
 
 module.exports = createActivity;

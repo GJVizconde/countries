@@ -15,8 +15,12 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       difficulty: {
-        type: DataTypes.ENUM("1", "2", "3", "4", "5"),
+        type: DataTypes.INTEGER,
         allowNull: false, //! Se puede colocar defaultValue: 1, en caso de necesitar un estado inicial
+        validate: {
+          min: 1,
+          max: 5,
+        },
       },
       duration: {
         type: DataTypes.INTEGER,

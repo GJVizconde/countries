@@ -1,8 +1,8 @@
-const getActivities = require("../../controllers/activity/getActivities");
+const findAllActivities = require("../../controllers/activity/findAllActivities");
 
 const getActivitiesHandler = async (req, res) => {
   try {
-    const showActivities = await getActivities();
+    const showActivities = await findAllActivities();
 
     res.status(200).json(showActivities);
   } catch (error) {

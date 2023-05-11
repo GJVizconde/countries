@@ -5,7 +5,13 @@ const getCountryById = async (id) => {
     where: {
       id,
     },
-    include: [Activity],
+    include: {
+      model: Activity,
+      attributes: ["name", "difficulty", "duration", "season"],
+      through: {
+        attributes: [],
+      },
+    },
   });
   return getCountry;
 };
