@@ -10,7 +10,7 @@ const getAllCountries = async () => {
     const countriesData = await apiInfo.map((dat) => {
       return {
         id: dat.cca3,
-        name: dat.translations.spa.common,
+        name: dat.name.common,
         flags: dat.flags[1],
         continent: dat.continents[0],
         capital: dat.capital ? dat.capital[0] : "Undefined capital city",
