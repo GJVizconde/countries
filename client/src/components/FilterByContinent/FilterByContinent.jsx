@@ -1,7 +1,23 @@
+import { useDispatch } from "react-redux";
+import { orderByContinent } from "../../redux/actions";
+
 const FilterByContinent = () => {
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    console.log(value); //!CONSOLE Verificando valor Menu Continents
+    dispatch(orderByContinent(value));
+  };
+
   return (
     <div>
-      <select id="mySelect" defaultValue="allContinents">
+      <select
+        id="mySelect"
+        defaultValue="Continents"
+        onChange={handleChange}
+        name="continentMenu"
+      >
         <option value="Continents">Continents</option>
         <option value="Africa">Africa</option>
         <option value="Antarctica">Antarctica</option>

@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
+export const ORDER_BY_CONTINENT = "ORDER_BY_CONTINENT";
 
 export const getCountries = () => {
   return async function (dispatch) {
@@ -46,5 +47,12 @@ export const getActivities = () => {
       type: GET_ACTIVITIES,
       payload: getAllActivities,
     });
+  };
+};
+
+export const orderByContinent = (continentName) => {
+  return {
+    type: ORDER_BY_CONTINENT,
+    payload: continentName,
   };
 };

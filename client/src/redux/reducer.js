@@ -1,4 +1,9 @@
-import { GET_ACTIVITIES, GET_BY_NAME, GET_COUNTRIES } from "./actions";
+import {
+  GET_ACTIVITIES,
+  GET_BY_NAME,
+  GET_COUNTRIES,
+  ORDER_BY_CONTINENT,
+} from "./actions";
 
 const initialState = {
   allCountries: [],
@@ -35,6 +40,21 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allActivities: action.payload,
+      };
+
+    case ORDER_BY_CONTINENT:
+      let orderByContinent = [];
+      if (action.payload === "Continents")
+        orderByContinent = state.allCountries;
+      else {
+        orderByContinent = state.allCountries.filter(
+          (country) => country.continent === action.payload
+        );
+      }
+
+      return {
+        ...state,
+        showCountries: orderByContinent,
       };
     default:
       return { ...state };
