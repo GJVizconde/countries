@@ -3,6 +3,7 @@ import { validate } from "./validation";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import axios from "axios";
 
 const Form = () => {
   //!HOOKS
@@ -81,7 +82,15 @@ const Form = () => {
       !errors.duration &&
       !errors.season
     ) {
-      alert("The activity was created successfully.");
+      alert("The activity was created successfully."); //! Alert de Prueba antes de poner el axios
+
+      axios
+        .post("http://localhost:3001/activities/", input)
+        .then((res) => alert(res))
+        .catch((err) => alert(err));
+
+      console.log(input);
+
       handleClear();
     } else {
       alert("An error occurred, please check your data and try again.");

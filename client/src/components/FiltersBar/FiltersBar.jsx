@@ -1,6 +1,7 @@
 import style from "./FiltersBar.module.css";
 import FilterByContinent from "../FilterByContinent/FilterByContinent";
 import FilterByActivity from "../FilterByActivity/FilterByActivity";
+import SortAlphabetical from "../SortAlphabetical/SortAlphabetical";
 
 const FiltersBar = () => {
   return (
@@ -10,6 +11,9 @@ const FiltersBar = () => {
       </div>
       <div>
         <FilterByActivity />
+      </div>
+      <div>
+        <SortAlphabetical />
       </div>
     </div>
   );

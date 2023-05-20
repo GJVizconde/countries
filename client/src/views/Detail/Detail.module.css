@@ -22,3 +22,21 @@
     color:white;
 
 }
+
+.activity{
+    border: 1px solid rgb(228, 2, 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(85, 96, 84, 0.399);
+
+
+}
+
+.activityContainer{
+        border: 1px solid black;
+        color: white;
+        font-size: 19px;
+
+
+}

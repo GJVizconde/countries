@@ -1,26 +1,37 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { orderByActivity } from "../../redux/actions";
 
 const FilterByActivity = () => {
-  const [activities, setActivities] = useState([]);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    axios(`http://localhost:3001/activities/`).then(({ data }) => {
-      if (data && data.length > 0 && data[0].name) {
-        // console.log(data); //! Revisando como llega data y props
-        const arrayActivities = data?.map((dat) => dat.name);
-        setActivities(arrayActivities);
-        // console.log(arrayActivities); //! CONSOLE Chequeo Array
-      }
-    });
-  }, []);
+  const allActivities = useSelector((state) => state.allActivities);
+
+  // const activityArray = allActivities.map((activity) => activity.name); //! Const para el cosole de abajo
+
+  // console.log(activityArray); //! CONSOLE Array de actividades para las opciones
+
+  const handleActivityChange = (event) => {
+    const activitySubmitted = event.target.value;
+    console.log(activitySubmitted); //!CONSOLE sendActivity
+    dispatch(orderByActivity(activitySubmitted));
+  };
+
   return (
     <div>
-      <label htmlFor="mySelect">Select an option:</label>
-      <select id="mySelect" defaultValue="optionDefault">
-        <option value="option1">option1</option>
-        <option value="option2">option2</option>
-        <option value="option3">option3</option>
+      <select
+        id="mySelect"
+        defaultValue="Activity"
+        onChange={handleActivityChange}
+        name="ActivityMenu"
+      >
+        <option value="Activity">Activity</option>
+        {allActivities.map((activity) => {
+          return (
+            <option key={activity.id} value={activity.name}>
+              {activity.name}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

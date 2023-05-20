@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ id, name, flags, continent }) => {
   return (
-    <div className={style.card}>
+    <div className={style.card} key={id}>
       <Link to={`/detail/${id}`}>
         <img src={flags} alt={name} />
         <p>{name}</p>

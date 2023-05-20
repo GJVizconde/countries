@@ -6,7 +6,7 @@ const FilterByContinent = () => {
 
   const handleChange = (event) => {
     const value = event.target.value;
-    console.log(value); //!CONSOLE Verificando valor Menu Continents
+    // console.log(value); //!CONSOLE Verificando valor Menu Continents
     dispatch(orderByContinent(value));
   };
 

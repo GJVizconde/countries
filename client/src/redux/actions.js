@@ -4,6 +4,8 @@ export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const ORDER_BY_CONTINENT = "ORDER_BY_CONTINENT";
+export const ORDER_BY_ACTIVITY = "ORDER_BY_ACTIVITY";
+export const SORT_ALPHABETICAL = "SORT_ALPHABETICAL";
 
 export const getCountries = () => {
   return async function (dispatch) {
@@ -54,5 +56,19 @@ export const orderByContinent = (continentName) => {
   return {
     type: ORDER_BY_CONTINENT,
     payload: continentName,
+  };
+};
+
+export const orderByActivity = (activityName) => {
+  return {
+    type: ORDER_BY_ACTIVITY,
+    payload: activityName,
+  };
+};
+
+export const sortAlph = (order) => {
+  return {
+    type: SORT_ALPHABETICAL,
+    payload: order,
   };
 };
