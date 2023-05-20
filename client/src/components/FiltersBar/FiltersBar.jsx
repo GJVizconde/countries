@@ -3,6 +3,7 @@ import FilterByContinent from "../FilterByContinent/FilterByContinent";
 import FilterByActivity from "../FilterByActivity/FilterByActivity";
 import SortAlphabetical from "../SortAlphabetical/SortAlphabetical";
 import SortPopulation from "../SortPopulation/SortPopulation";
+import ClearButton from "../ClearButton/ClearButton";
 
 const FiltersBar = () => {
   return (
@@ -18,6 +19,9 @@ const FiltersBar = () => {
       </div>
       <div>
         <SortPopulation />
+      </div>
+      <div>
+        <ClearButton />
       </div>
     </div>
   );
