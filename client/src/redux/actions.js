@@ -6,6 +6,7 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const ORDER_BY_CONTINENT = "ORDER_BY_CONTINENT";
 export const ORDER_BY_ACTIVITY = "ORDER_BY_ACTIVITY";
 export const SORT_ALPHABETICAL = "SORT_ALPHABETICAL";
+export const SORT_POPULATION = "SORT_POPULATION";
 
 export const getCountries = () => {
   return async function (dispatch) {
@@ -27,17 +28,24 @@ export const getCountries = () => {
 // };
 
 export const getByName = (name) => {
-  return async function (dispatch) {
-    const apiData = await axios.get(
-      `http://localhost:3001/countries/?name=${name}`
-    );
-    const getArrayByname = apiData.data;
+  if (name) {
+    return async function (dispatch) {
+      const apiData = await axios.get(
+        `http://localhost:3001/countries/?name=${name}`
+      );
+      const getArrayByname = apiData.data;
 
-    dispatch({
+      dispatch({
+        type: GET_BY_NAME,
+        payload: getArrayByname,
+      });
+    };
+  } else {
+    return {
       type: GET_BY_NAME,
-      payload: getArrayByname,
-    });
-  };
+      payload: "vacio",
+    };
+  }
 };
 
 export const getActivities = () => {
@@ -69,6 +77,13 @@ export const orderByActivity = (activityName) => {
 export const sortAlph = (order) => {
   return {
     type: SORT_ALPHABETICAL,
+    payload: order,
+  };
+};
+
+export const sortPopulation = (order) => {
+  return {
+    type: SORT_POPULATION,
     payload: order,
   };
 };

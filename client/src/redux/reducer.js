@@ -5,6 +5,7 @@ import {
   ORDER_BY_CONTINENT,
   ORDER_BY_ACTIVITY,
   SORT_ALPHABETICAL,
+  SORT_POPULATION,
 } from "./actions";
 
 const initialState = {
@@ -16,10 +17,12 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES:
+      let allCountries = [...action.payload];
+      allCountries = allCountries.sort((a, b) => a.name.localeCompare(b.name));
       return {
         ...state,
-        allCountries: action.payload,
-        showCountries: action.payload,
+        allCountries: allCountries,
+        showCountries: allCountries,
       };
 
     case GET_BY_NAME:
@@ -33,9 +36,17 @@ const rootReducer = (state = initialState, action) => {
 
       // console.log(findedCountries); //!CONSOLE
 
+      let findedCountries = [];
+
+      if (action.payload === "vacio") {
+        findedCountries = state.allCountries;
+      } else {
+        findedCountries = action.payload;
+      }
+
       return {
         ...state,
-        showCountries: action.payload,
+        showCountries: findedCountries,
       };
 
     case ORDER_BY_CONTINENT:
@@ -123,6 +134,27 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         showCountries: orderByAlph,
+      };
+
+    case SORT_POPULATION:
+      let orderByPop = [...state.showCountries];
+
+      if (action.payload === "Population") {
+        orderByPop = state.allCountries;
+      }
+
+      if (action.payload === "Ascendent") {
+        orderByPop = orderByPop.sort((a, b) => a.population - b.population);
+        console.log(orderByPop);
+      }
+      if (action.payload === "Descendent") {
+        orderByPop = orderByPop.sort((a, b) => b.population - a.population);
+        console.log(orderByPop);
+      }
+
+      return {
+        ...state,
+        showCountries: orderByPop,
       };
 
     default:
