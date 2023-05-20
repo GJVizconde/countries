@@ -24,10 +24,10 @@ module.exports = (sequelize) => {
       },
       duration: {
         type: DataTypes.FLOAT,
-        allowNul: true,
+        allowNull: true,
       },
       season: {
-        type: DataTypes.ENUM("Summer", "Autum/Fall", "Winter", "Spring"),
+        type: DataTypes.ENUM("Summer", "Autumn/Fall", "Winter", "Spring"),
         allowNull: false,
       },
     },
