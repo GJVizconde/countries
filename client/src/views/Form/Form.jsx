@@ -4,35 +4,33 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
+import CountriesForm from "../../components/CountriesForm/CountriesForm";
 
 const Form = () => {
   //!HOOKS
   const dispatch = useDispatch();
-  const activitiesState = useSelector((state) => state.allActivities);
+  const allActivities = useSelector((state) => state.allActivities);
 
   useEffect(() => {
-    dispatch(getActivities()); // Trayendo activities para chequear estado Global
+    dispatch(getActivities()); // Trayendo activities para chequear estado Global si no se hace dispatch se pierde la data sino se llega a Home
   }, [dispatch]);
 
   useEffect(() => {
-    //! useEfect Revisar actualizacion de E.G. activities
-    let logActivitiesState = () => {
-      console.log("allActivities actualizado", activitiesState);
-    };
-    logActivitiesState();
-  }, [activitiesState]); //
+    console.log(allActivities); //!CONSOLE Debe Mostrar cuando actualiza el estado showCountries
+  }, [allActivities]);
 
-  // useEffect(() => {
-  //   return () => {
-  //     console.log("Estado de activities actualizado", activitiesState);
-  //   };
-  // }, [activitiesState]); //!Console. Revisar array activities. Viejo
+  const [idArray, setIdArray] = useState([]); // Se pasara por prompts, estado para capturar los id de los countries
+
+  const [countrySelected, setCountrySelected] = useState([]);
+
+  const [optionCountry, setOptionCountry] = useState(""); // Estado para limpiar  countriesSelect
 
   const [input, setInput] = useState({
     name: "",
     difficulty: "0",
     duration: "",
     season: "",
+    countries: [], // Se agregó en ambos countries
   });
 
   const [errors, setErrors] = useState({
@@ -40,7 +38,12 @@ const Form = () => {
     difficulty: "0",
     duration: "",
     season: "",
+    countries: [],
   });
+
+  useEffect(() => {
+    console.log(idArray); //! CONSOLE Check el array de id de Countries
+  }, [idArray]);
 
   const handleChange = (event) => {
     const property = event.target.name;
@@ -67,7 +70,12 @@ const Form = () => {
       difficulty: "0",
       duration: "",
       season: "",
+      countries: [],
     });
+
+    setIdArray([]);
+    setCountrySelected([]);
+    setOptionCountry("");
   };
 
   const handleSubmit = (event) => {
@@ -86,10 +94,10 @@ const Form = () => {
 
       axios
         .post("http://localhost:3001/activities/", input)
-        .then((res) => alert(res))
+        // .then((res) => alert(res.data)) //!puse el "data", modificacion el "data" esta de prueba ,igual me sigue mostrando Object
         .catch((err) => alert(err));
 
-      console.log(input);
+      // console.log(input);
 
       handleClear();
     } else {
@@ -146,6 +154,17 @@ const Form = () => {
           </select>
         </div>
         <div>
+          <CountriesForm
+            idArray={idArray}
+            setIdArray={setIdArray}
+            setInput={setInput}
+            setCountrySelected={setCountrySelected}
+            countrySelected={countrySelected}
+            setOptionCountry={setOptionCountry}
+            optionCountry={optionCountry}
+          />
+        </div>
+        <div>
           <button
             type="submit"
             disabled={
@@ -162,7 +181,7 @@ const Form = () => {
           >
             Create Activity
           </button>
-          <button type="button" onClick={handleClear}>
+          <button type="button" onClick={() => handleClear()}>
             Clear
           </button>
         </div>
