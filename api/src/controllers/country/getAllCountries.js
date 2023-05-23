@@ -5,7 +5,9 @@ const getAllCountries = async () => {
   const bdd = await Country.findAll();
 
   if (!bdd.length) {
-    const apiUrl = await axios.get("https://restcountries.com/v3/all");
+    const apiUrl = await axios.get(
+      "https://rest-countries.up.railway.app/v3/all"
+    );
     const apiInfo = apiUrl.data;
     const countriesData = await apiInfo.map((dat) => {
       return {
