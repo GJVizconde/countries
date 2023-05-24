@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { orderByActivity } from "../../redux/actions";
 
-const FilterByActivity = () => {
+const FilterByActivity = ({ setOpActivity, opActivity }) => {
   const dispatch = useDispatch();
 
   const allActivities = useSelector((state) => state.allActivities);
@@ -14,15 +14,18 @@ const FilterByActivity = () => {
     const activitySubmitted = event.target.value;
     console.log(activitySubmitted); //!CONSOLE sendActivity
     dispatch(orderByActivity(activitySubmitted));
+
+    setOpActivity(activitySubmitted); //!Modificacion del valor a traves de State Local para hacer clear
   };
 
   return (
     <div>
       <select
         id="mySelect"
-        defaultValue="Activity"
         onChange={handleActivityChange}
         name="ActivityMenu"
+        defaultValue="Activity"
+        value={opActivity}
       >
         <option value="Activity">Activity</option>
         {allActivities.map((activity) => {
