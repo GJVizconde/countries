@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FiltersBar from "../../components/FiltersBar/FiltersBar";
-import Pagination from "../../components/Pagination/Pagination";
+// import Pagination from "../../components/Pagination/Pagination";
 import PaginationV2 from "../../components/PaginationV2/PaginationV2";
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  let showActivities = useSelector((state) => state.allActivities); //! Trayendo del estado global a showActivities
+  // let showActivities = useSelector((state) => state.allActivities); //! Trayendo del estado global a showActivities
   let showCountries = useSelector((state) => state.showCountries); //! Trayendo del estado global a showCountries
 
   useEffect(() => {
@@ -57,6 +57,7 @@ const Home = () => {
           cardsPerPage={cardsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
+          setCardsPerPage={setCardsPerPage}
         />
         <div className={style.filterAndCards}>
           <div className={style.filtersBar}>
