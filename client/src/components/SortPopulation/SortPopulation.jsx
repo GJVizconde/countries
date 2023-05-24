@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { sortPopulation } from "../../redux/actions";
 
-const SortPopulation = ({ setOpPopulation, opPopulation }) => {
+const SortPopulation = ({ setOpPopulation, opPopulation, setCurrentPage }) => {
   const dispatch = useDispatch();
 
   const handleOrderChange = (event) => {
@@ -10,13 +10,14 @@ const SortPopulation = ({ setOpPopulation, opPopulation }) => {
     dispatch(sortPopulation(value)); // dispatch del value
 
     setOpPopulation(value);
+
+    setCurrentPage(1);
   };
 
   return (
     <div>
       <select
         id="selectPopulation"
-        defaultValue="Population"
         onChange={handleOrderChange}
         name="selectPopulationOrder"
         value={opPopulation}

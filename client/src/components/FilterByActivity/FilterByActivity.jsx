@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { orderByActivity } from "../../redux/actions";
 
-const FilterByActivity = ({ setOpActivity, opActivity }) => {
+const FilterByActivity = ({ setOpActivity, opActivity, setCurrentPage }) => {
   const dispatch = useDispatch();
 
   const allActivities = useSelector((state) => state.allActivities);
@@ -16,6 +16,7 @@ const FilterByActivity = ({ setOpActivity, opActivity }) => {
     dispatch(orderByActivity(activitySubmitted));
 
     setOpActivity(activitySubmitted); //!Modificacion del valor a traves de State Local para hacer clear
+    setCurrentPage(1);
   };
 
   return (
@@ -24,7 +25,6 @@ const FilterByActivity = ({ setOpActivity, opActivity }) => {
         id="mySelect"
         onChange={handleActivityChange}
         name="ActivityMenu"
-        defaultValue="Activity"
         value={opActivity}
       >
         <option value="Activity">Activity</option>

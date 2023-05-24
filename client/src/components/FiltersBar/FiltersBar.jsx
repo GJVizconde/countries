@@ -6,7 +6,7 @@ import SortPopulation from "../SortPopulation/SortPopulation";
 import ClearButton from "../ClearButton/ClearButton";
 import { useState } from "react";
 
-const FiltersBar = () => {
+const FiltersBar = ({ setCurrentPage }) => {
   const [opContinent, setOpContinent] = useState("");
 
   const [opActivity, setOpActivity] = useState("");
@@ -21,24 +21,28 @@ const FiltersBar = () => {
         <FilterByContinent
           setOpContinent={setOpContinent}
           opContinent={opContinent}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <div>
         <FilterByActivity
           setOpActivity={setOpActivity}
           opActivity={opActivity}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <div>
         <SortAlphabetical
           setOpAlphabetical={setOpAlphabetical}
           opAlphabetilcal={opAlphabetilcal}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <div>
         <SortPopulation
           setOpPopulation={setOpPopulation}
           opPopulation={opPopulation}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <div>
@@ -47,6 +51,7 @@ const FiltersBar = () => {
           setOpActivity={setOpActivity}
           setOpAlphabetical={setOpAlphabetical}
           setOpPopulation={setOpPopulation}
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </div>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FiltersBar from "../../components/FiltersBar/FiltersBar";
 import Pagination from "../../components/Pagination/Pagination";
+import PaginationV2 from "../../components/PaginationV2/PaginationV2";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,24 +29,30 @@ const Home = () => {
   //   console.log(showActivities); //!CONSOLE Debe Mostrar cuando actualiza el estado showActivities
   // }, [showActivities]);
 
-  const [currentPage, setCurrentPage] = useState(1); //! Estados para la paginacion
-  const [cardsPerPage, setCardsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1); // Estados para la paginacion1 Pagina actual
+  const [cardsPerPage, setCardsPerPage] = useState(10); // Estados para la paginacion2 Cantidad de Cards/page
 
-  const lastCardIndex = currentPage * cardsPerPage;
-  const firstCardIndex = lastCardIndex - cardsPerPage;
+  const lastCardIndex = currentPage * cardsPerPage; // ultima que se muestra en page
+  const firstCardIndex = lastCardIndex - cardsPerPage; // primera carta que se muestra en page
 
-  const currentCards = showCountries.slice(firstCardIndex, lastCardIndex);
+  const currentCards = showCountries.slice(firstCardIndex, lastCardIndex); // cartas actuales con slice que corta el array en elemento inicial y final
 
   return (
     <div>
       <h1>Estoy en Home</h1>
 
       <SearchBar />
-      <FiltersBar />
-      <Pagination
-        totalCards={showCountries.length}
+      <FiltersBar setCurrentPage={setCurrentPage} />
+      {/* <Pagination
+        totalCards={showCountries.length} // Total Cards length del objeto todos los paises
         cardsPerPage={cardsPerPage}
         setCurrentPage={setCurrentPage}
+      /> */}
+      <PaginationV2
+        totalCards={showCountries.length} // Total Cards length del objeto todos los paises
+        cardsPerPage={cardsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
       <CardsContainer showCountries={currentCards} />
     </div>

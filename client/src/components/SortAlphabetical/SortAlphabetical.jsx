@@ -1,7 +1,11 @@
 import { useDispatch } from "react-redux";
 import { sortAlph } from "../../redux/actions";
 
-const SortAlphabetical = ({ setOpAlphabetical, opAlphabetilcal }) => {
+const SortAlphabetical = ({
+  setOpAlphabetical,
+  opAlphabetilcal,
+  setCurrentPage,
+}) => {
   const dispatch = useDispatch();
 
   const handleOrderChange = (event) => {
@@ -10,13 +14,14 @@ const SortAlphabetical = ({ setOpAlphabetical, opAlphabetilcal }) => {
     dispatch(sortAlph(value)); // dispatch del value
 
     setOpAlphabetical(value);
+
+    setCurrentPage(1);
   };
 
   return (
     <div>
       <select
         id="selectAlphabetical"
-        defaultValue="Order"
         onChange={handleOrderChange}
         name="selectAlphabeticalOrder"
         value={opAlphabetilcal}

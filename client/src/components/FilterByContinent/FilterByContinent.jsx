@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { orderByContinent } from "../../redux/actions";
 
-const FilterByContinent = ({ setOpContinent, opContinent }) => {
+const FilterByContinent = ({ setOpContinent, opContinent, setCurrentPage }) => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -9,6 +9,7 @@ const FilterByContinent = ({ setOpContinent, opContinent }) => {
     // console.log(value); //!CONSOLE Verificando valor Menu Continents
     dispatch(orderByContinent(value));
     setOpContinent(value);
+    setCurrentPage(1);
   };
 
   return (
@@ -17,7 +18,6 @@ const FilterByContinent = ({ setOpContinent, opContinent }) => {
         id="mySelect"
         onChange={handleChange}
         name="continentMenu"
-        defaultValue="Continents"
         value={opContinent}
       >
         <option value="Continents">Continents</option>

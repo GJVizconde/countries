@@ -11,6 +11,7 @@ const ClearButton = ({
   setOpActivity,
   setOpAlphabetical,
   setOpPopulation,
+  setCurrentPage,
 }) => {
   const dispatch = useDispatch();
 
@@ -26,6 +27,8 @@ const ClearButton = ({
 
     setOpPopulation("Population");
     dispatch(sortPopulation("Population"));
+
+    setCurrentPage(1);
   };
   return (
     <div>

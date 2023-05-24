@@ -1,0 +1,42 @@
+.paginationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .totalPages {
+    margin-right: 45px;
+  }
+  
+  input[name="page"] {
+    width: 15px; /* Ajusta el ancho del input según tus necesidades */
+    padding-bottom: 0px;
+    font-size: 12px;
+    margin-right: 2px;
+
+  }
+  
+  input[name="page"]:focus {
+    outline: none;
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  /* Para elminar spinner del input */
+  input[name="page"]::-webkit-inner-spin-button,
+  input[name="page"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  
+  input[name="page"] {
+    -webkit-appearance: textfield; /* Safari */
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;
+  }
+
+    /* Para elminar spinner del input */
