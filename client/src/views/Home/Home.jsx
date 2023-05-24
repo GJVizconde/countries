@@ -1,3 +1,5 @@
+import style from "./Home.module.css";
+
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { getCountries, getActivities } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,23 +40,33 @@ const Home = () => {
   const currentCards = showCountries.slice(firstCardIndex, lastCardIndex); // cartas actuales con slice que corta el array en elemento inicial y final
 
   return (
-    <div>
+    <div className={style.container}>
       <h1>Estoy en Home</h1>
 
-      <SearchBar />
-      <FiltersBar setCurrentPage={setCurrentPage} />
+      <div className={style.searchBar}>
+        <SearchBar />
+      </div>
       {/* <Pagination
         totalCards={showCountries.length} // Total Cards length del objeto todos los paises
         cardsPerPage={cardsPerPage}
         setCurrentPage={setCurrentPage}
       /> */}
-      <PaginationV2
-        totalCards={showCountries.length} // Total Cards length del objeto todos los paises
-        cardsPerPage={cardsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
-      <CardsContainer showCountries={currentCards} />
+      <div>
+        <PaginationV2
+          totalCards={showCountries.length} // Total Cards length del objeto todos los paises
+          cardsPerPage={cardsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+        <div className={style.filterAndCards}>
+          <div className={style.filtersBar}>
+            <FiltersBar setCurrentPage={setCurrentPage} />
+          </div>
+        </div>
+        <div className={style.cardsContainer}>
+          <CardsContainer showCountries={currentCards} />
+        </div>
+      </div>
     </div>
   );
 };

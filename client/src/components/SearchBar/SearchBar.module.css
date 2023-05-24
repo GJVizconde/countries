@@ -1,3 +1,15 @@
-/* .Input{
-    paddin: 5px;
-} */
+.Input {
+  background-image: url('../../../public/icons/lupa.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  padding: 5px 20px 5px 10px; /* Ajusta los valores según sea necesario para dar espacio a la imagen */
+  border-radius: 1em;
+  border: solid 1.2px #808080;
+  font-size: 14px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.908); /* Agrega la sombra difuminada */
+}
+
+input[name="searchInput"]:focus {
+  outline: none;
+}

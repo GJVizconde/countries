@@ -18,8 +18,9 @@ const SearchBar = () => {
         className={style.Input}
         name="searchInput"
         onChange={handleOnChange}
+        placeholder="Search Country"
       />
-      <button>Search</button>
+      {/* <button>Search</button> */}
     </div>
   );
 };

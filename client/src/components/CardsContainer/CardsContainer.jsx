@@ -14,7 +14,7 @@ const CardsContainer = ({ showCountries }) => {
             name={country.name}
             flags={country.flags}
             continent={country.continent}
-            population={country.population.toLocaleString()}
+            // population={country.population.toLocaleString()}
           />
         );
       })}
