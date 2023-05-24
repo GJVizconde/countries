@@ -93,7 +93,7 @@ const Form = () => {
       alert("The activity was created successfully."); //! Alert de Prueba antes de poner el axios
 
       axios
-        .post("http://localhost:3001/activities/", input)
+        .post("/activities/", input)
         // .then((res) => alert(res.data)) //!puse el "data", modificacion el "data" esta de prueba ,igual me sigue mostrando Object
         .catch((err) => alert(err));
 

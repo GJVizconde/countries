@@ -10,7 +10,7 @@ export const SORT_POPULATION = "SORT_POPULATION";
 
 export const getCountries = () => {
   return async function (dispatch) {
-    const apiData = await axios.get("http://localhost:3001/countries/");
+    const apiData = await axios.get("/countries/");
     const getAllCountries = apiData.data;
 
     dispatch({
@@ -30,9 +30,7 @@ export const getCountries = () => {
 export const getByName = (name) => {
   if (name) {
     return async function (dispatch) {
-      const apiData = await axios.get(
-        `http://localhost:3001/countries/?name=${name}`
-      );
+      const apiData = await axios.get(`/countries/?name=${name}`);
       const getArrayByname = apiData.data;
 
       dispatch({
@@ -50,7 +48,7 @@ export const getByName = (name) => {
 
 export const getActivities = () => {
   return async function (dispatch) {
-    const apiData = await axios.get("http://localhost:3001/activities/");
+    const apiData = await axios.get("/activities/");
     const getAllActivities = apiData.data;
 
     dispatch({

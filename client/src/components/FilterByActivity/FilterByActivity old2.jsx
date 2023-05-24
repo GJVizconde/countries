@@ -5,7 +5,7 @@ const FilterByActivity = () => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    axios(`http://localhost:3001/activities/`).then(({ data }) => {
+    axios(`/activities/`).then(({ data }) => {
       if (data && data.length > 0 && data[0].name) {
         // console.log(data); //! Revisando como llega data y props
         const arrayActivities = data?.map((dat) => dat.name);

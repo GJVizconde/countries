@@ -11,7 +11,7 @@ const Detail = () => {
   const [country, setCountry] = useState({});
 
   useEffect(() => {
-    axios(`http://localhost:3001/countries/${id}`).then(({ data }) => {
+    axios(`/countries/${id}`).then(({ data }) => {
       // console.log(data); //! CONSOLE verificando data, getCountryById
       if (data[0].name) {
         setCountry(data[0]);
