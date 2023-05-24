@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
 
 // console.log({
 //   DB_USER,
@@ -12,14 +12,20 @@ const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 //   BDD,
 // }); //! Console log de prueba para ver si llegan los entorno de variables de forma correcta
 
-const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false,
-    charset: "utf8mb4", // lets Sequelize know we can use pg-native for ~30% more speed
-  }
-);
+// const sequelize = new Sequelize(
+//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
+//   {
+//     logging: false, // set to console.log to see the raw SQL queries
+//     native: false,
+//     charset: "utf8mb4", // lets Sequelize know we can use pg-native for ~30% more speed
+//   }
+// );
+
+const sequelize = new Sequelize(DB_DEPLOY, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false,
+});
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
