@@ -1,7 +1,36 @@
 .mainContainer{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    border-radius: 15px;
-    border: 1px solid black;
+    justify-content: flex-end;
+    /* border-radius: 15px; */
+    /* border: 1px solid black; */
+    background-color: rgba(0, 55, 206, 0.49);
+    height: 40px;
+}
+
+.home{
+    color: white;
+    margin-right: 5em;
+    /* border: solid white 0.5px; */
+    padding: 10px;
+    align-self: center;
+}
+
+.home:hover,
+.home:hover {
+  border: solid white 0.5px;
+}
+
+.create{
+    color: white;
+    margin-right: 5em;
+    /* border: solid white 0.5px; */
+    padding: 10px;
+    align-self: center;
+    
+}
+
+.home:hover,
+.create:hover {
+  border: solid white 0.5px;
 }

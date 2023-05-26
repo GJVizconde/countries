@@ -8,6 +8,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import FiltersBar from "../../components/FiltersBar/FiltersBar";
 // import Pagination from "../../components/Pagination/Pagination";
 import PaginationV2 from "../../components/PaginationV2/PaginationV2";
+// import nuevo from "../../../public/nuevo.jpg";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,10 @@ const Home = () => {
 
   return (
     <div className={style.container}>
-      <h1>Countries</h1>
+      <div>
+        <img src="./nuevo.png" alt="logo" />
+      </div>
+      {/* <h1>Countries</h1> */}
 
       <div className={style.searchBar}>
         <SearchBar setCurrentPage={setCurrentPage} />

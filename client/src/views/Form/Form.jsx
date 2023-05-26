@@ -117,7 +117,10 @@ const Form = () => {
 
   return (
     <div>
-      <h2>Activities Creator</h2>
+      <div>
+        <img src="./nuevo.png" alt="logo" />
+      </div>
+      {/* <h2>Activities Creator</h2> */}
       <div className={style.form}>
         <form onSubmit={handleSubmit}>
           <div className={style.activity}>

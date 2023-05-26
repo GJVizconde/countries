@@ -24,11 +24,12 @@ const Detail = () => {
 
   // console.log(typeof country?.population); //! CONSOLE Tipo de Dato la poblacion
 
-  // console.log(country.activities); //! CONSOLE Activities que tiene el CountryByID
+  console.log(country.activities); //! CONSOLE Activities que tiene el CountryByID
 
   return (
     <div>
       <h2>{country.name}</h2>
+
       <div className={style.detail}>
         <div>
           <img src={country.flags} alt={country.name} />
@@ -57,6 +58,7 @@ const Detail = () => {
                   key={activity.id}
                   id={activity.id}
                   name={activity.name}
+                  images={activity.images}
                 />
               );
             })}
