@@ -17,11 +17,15 @@ const FiltersBar = ({ setCurrentPage }) => {
 
   return (
     <div className={style.barContainer}>
+      <div className={style.labelText}>
+        <label>Filters:</label>
+      </div>
       <div className={style.barContinent}>
         <FilterByContinent
           setOpContinent={setOpContinent}
           opContinent={opContinent}
           setCurrentPage={setCurrentPage}
+          setOpActivity={setOpActivity}
         />
       </div>
       <div className={style.barActivity}>
@@ -29,6 +33,7 @@ const FiltersBar = ({ setCurrentPage }) => {
           setOpActivity={setOpActivity}
           opActivity={opActivity}
           setCurrentPage={setCurrentPage}
+          setOpContinent={setOpContinent}
         />
       </div>
       <div className={style.barAlph}>
@@ -45,13 +50,14 @@ const FiltersBar = ({ setCurrentPage }) => {
           setCurrentPage={setCurrentPage}
         />
       </div>
-      <div>
+      <div className={style.buttonDiv}>
         <ClearButton
           setOpContinent={setOpContinent}
           setOpActivity={setOpActivity}
           setOpAlphabetical={setOpAlphabetical}
           setOpPopulation={setOpPopulation}
           setCurrentPage={setCurrentPage}
+          className={style.buttonClear}
         />
       </div>
     </div>

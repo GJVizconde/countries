@@ -1,7 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { orderByActivity } from "../../redux/actions";
 
-const FilterByActivity = ({ setOpActivity, opActivity, setCurrentPage }) => {
+const FilterByActivity = ({
+  setOpActivity,
+  opActivity,
+  setCurrentPage,
+  setOpContinent,
+}) => {
   const dispatch = useDispatch();
 
   const allActivities = useSelector((state) => state.allActivities);
@@ -17,6 +22,7 @@ const FilterByActivity = ({ setOpActivity, opActivity, setCurrentPage }) => {
 
     setOpActivity(activitySubmitted); //!Modificacion del valor a traves de State Local para hacer clear
     setCurrentPage(1);
+    setOpContinent("Continents");
   };
 
   return (

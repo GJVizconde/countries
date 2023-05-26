@@ -1,7 +1,12 @@
 import { useDispatch } from "react-redux";
 import { orderByContinent } from "../../redux/actions";
 
-const FilterByContinent = ({ setOpContinent, opContinent, setCurrentPage }) => {
+const FilterByContinent = ({
+  setOpContinent,
+  opContinent,
+  setCurrentPage,
+  setOpActivity,
+}) => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -9,7 +14,9 @@ const FilterByContinent = ({ setOpContinent, opContinent, setCurrentPage }) => {
     // console.log(value); //!CONSOLE Verificando valor Menu Continents
     dispatch(orderByContinent(value));
     setOpContinent(value);
+
     setCurrentPage(1);
+    setOpActivity("Activity");
   };
 
   return (
