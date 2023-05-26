@@ -17,28 +17,28 @@ const FiltersBar = ({ setCurrentPage }) => {
 
   return (
     <div className={style.barContainer}>
-      <div>
+      <div className={style.barContinent}>
         <FilterByContinent
           setOpContinent={setOpContinent}
           opContinent={opContinent}
           setCurrentPage={setCurrentPage}
         />
       </div>
-      <div>
+      <div className={style.barActivity}>
         <FilterByActivity
           setOpActivity={setOpActivity}
           opActivity={opActivity}
           setCurrentPage={setCurrentPage}
         />
       </div>
-      <div>
+      <div className={style.barAlph}>
         <SortAlphabetical
           setOpAlphabetical={setOpAlphabetical}
           opAlphabetilcal={opAlphabetilcal}
           setCurrentPage={setCurrentPage}
         />
       </div>
-      <div>
+      <div className={style.barPopulation}>
         <SortPopulation
           setOpPopulation={setOpPopulation}
           opPopulation={opPopulation}

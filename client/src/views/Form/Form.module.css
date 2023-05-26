@@ -1,0 +1,79 @@
+.form{
+    /* border: 1px solid grey;
+    background-color: rgb(247,247,247);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
+    display: flex;
+    /* border: solid 2px red; */
+    flex-direction: column;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: auto;
+    
+}
+
+.form .activity{
+    margin-top: 2em;
+}
+
+.labelText {
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+    /* text-decoration: underline; */
+  }
+
+  .inputName {
+    width: 180px;
+  }
+
+  .inputName:focus {
+    outline: none;
+  }
+
+  .difficulty{
+    margin-top: 1.6em;
+  }
+
+  .inputDifficulty{
+    width: 200px;
+  }
+
+  .duration{
+    margin-top: 1.6em;
+  }
+
+  .season{
+    margin-top: 1.6em;
+  }
+
+  .beginner{
+    color: rgb(128, 244, 32);
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .amateur{
+    color: rgb(32, 170, 244);
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .normal{
+    color: rgb(244, 226, 32);
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .professional{
+    color:  rgb(244, 111, 32) ;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .expert{
+    color: rgb(254, 85, 85) ;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }

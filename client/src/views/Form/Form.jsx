@@ -1,3 +1,5 @@
+import style from "./Form.module.css";
+
 import { getActivities } from "../../redux/actions";
 import { validate } from "./validation";
 import { useState } from "react";
@@ -107,85 +109,115 @@ const Form = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <h2>Estoy en Form</h2>
-        <div>
-          <label htmlFor="name">Activity: </label>
-          <input
-            type="text"
-            name="name"
-            value={input.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="difficulty">Difficulty: </label>
-          <input
-            type="range"
-            name="difficulty"
-            min="0"
-            max="5"
-            placeholder="1-5"
-            value={input.difficulty}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="duration">Duration(hr): </label>
-          <input
-            type="number"
-            name="duration"
-            min="0"
-            max="12"
-            step="0.5"
-            placeholder="0.5-12"
-            value={input.duration}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="season">Season: </label>
-          <select name="season" value={input.season} onChange={handleChange}>
-            <option value="Season">Season</option>
-            <option value="Autumn/Fall">Autumn/Fall</option>
-            <option value="Spring">Spring</option>
-            <option value="Summer">Summer</option>
-            <option value="Winter">Winter</option>
-          </select>
-        </div>
-        <div>
-          <CountriesForm
-            idArray={idArray}
-            setIdArray={setIdArray}
-            setInput={setInput}
-            setCountrySelected={setCountrySelected}
-            countrySelected={countrySelected}
-            setOptionCountry={setOptionCountry}
-            optionCountry={optionCountry}
-          />
-        </div>
-        <div>
-          <button
-            type="submit"
-            disabled={
-              !input.name ||
-              !input.difficulty ||
-              !input.duration ||
-              !input.season ||
-              input.season === "Season" ||
-              errors.name ||
-              errors.difficulty ||
-              errors.duration ||
-              errors.season
-            }
-          >
-            Create Activity
-          </button>
-          <button type="button" onClick={() => handleClear()}>
-            Clear
-          </button>
-        </div>
-      </form>
+      <h2>Activities Creator</h2>
+      <div className={style.form}>
+        <form onSubmit={handleSubmit}>
+          <div className={style.activity}>
+            <label htmlFor="name" className={style.labelText}>
+              Activity:{" "}
+            </label>
+            <br />
+            <input
+              type="text"
+              name="name"
+              value={input.name}
+              onChange={handleChange}
+              className={style.inputName}
+            />
+          </div>
+          <div className={style.difficulty}>
+            <label className={style.labelText} htmlFor="difficulty">
+              Difficulty:{" "}
+            </label>
+            <br />
+            <input
+              type="range"
+              name="difficulty"
+              min="0"
+              max="5"
+              placeholder="1-5"
+              value={input.difficulty}
+              onChange={handleChange}
+              className={style.inputDifficulty}
+            />
+            {input.difficulty === "1" ? (
+              <p className={style.beginner}>Beginner</p>
+            ) : input.difficulty === "2" ? (
+              <p className={style.amateur}>Amateur</p>
+            ) : input.difficulty === "3" ? (
+              <p className={style.normal}>Normal</p>
+            ) : input.difficulty === "4" ? (
+              <p className={style.professional}>Professional</p>
+            ) : input.difficulty === "5" ? (
+              <p className={style.expert}>Expert</p>
+            ) : (
+              <p></p>
+            )}
+          </div>
+          <div className={style.duration}>
+            <label className={style.labelText} htmlFor="duration">
+              Duration(hr):{" "}
+            </label>
+            <br />
+            <input
+              type="number"
+              name="duration"
+              min="0"
+              max="12"
+              step="0.5"
+              placeholder="0.5-12"
+              value={input.duration}
+              onChange={handleChange}
+              className={style.inputDuration}
+            />
+          </div>
+          <div className={style.season}>
+            <label className={style.labelText} htmlFor="season">
+              Season:{" "}
+            </label>
+            <br />
+            <select name="season" value={input.season} onChange={handleChange}>
+              <option value="Season">Season</option>
+              <option value="Autumn/Fall">Autumn/Fall</option>
+              <option value="Spring">Spring</option>
+              <option value="Summer">Summer</option>
+              <option value="Winter">Winter</option>
+            </select>
+          </div>
+          <div>
+            <CountriesForm
+              idArray={idArray}
+              setIdArray={setIdArray}
+              setInput={setInput}
+              setCountrySelected={setCountrySelected}
+              countrySelected={countrySelected}
+              setOptionCountry={setOptionCountry}
+              optionCountry={optionCountry}
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              disabled={
+                !input.name ||
+                !input.difficulty ||
+                !input.duration ||
+                !input.season ||
+                input.season === "Season" ||
+                errors.name ||
+                errors.difficulty ||
+                errors.duration ||
+                errors.season
+              }
+            >
+              Create Activity
+            </button>
+            <button type="button" onClick={() => handleClear()}>
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

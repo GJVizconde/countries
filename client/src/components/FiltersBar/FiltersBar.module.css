@@ -1,12 +1,47 @@
 .barContainer{
     /* border: 1px solid black; */
+    border: 1px solid grey;
+    background-color: rgb(247,247,247);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     border-radius: 15px;
     flex-wrap: wrap;
     gap: 1em;
     justify-content: center;
-    margin: 1em
+    margin: 1em;
+    width: 150px;
+    height: 200px;
 
 
 }
+
+.barContinent{
+/* border: 1px solid rgb(250, 0, 0); */
+text-align: center;
+
+}
+
+.barActivity{
+    /* border: 1px solid rgb(250, 0, 0); */
+    text-align: center;
+    
+    }
+
+
+.barAlph{
+    /* border: 1px solid rgb(250, 0, 0); */
+    text-align: center;
+    
+    }
+
+.barPopulation{
+    /* border: 1px solid rgb(250, 0, 0); */
+    text-align: center;
+        
+        }
+    
+
+
+
+

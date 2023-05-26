@@ -1,3 +1,5 @@
+import style from "./CountriesForm.module.css";
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../../redux/actions";
@@ -81,9 +83,9 @@ const CountriesForm = ({
   };
 
   return (
-    <div>
+    <div className={style.form}>
       <div>
-        <p>Select a Country:</p>
+        <label className={style.pText}>Select a Country:</label>
       </div>
       <div>
         <select
@@ -91,7 +93,7 @@ const CountriesForm = ({
           value={optionCountry}
           onChange={handleSelectCountry}
         >
-          <option value="Select a Country">Selec a Country</option>
+          <option value="Select a Country">Select a Country</option>
           {allCountries.map((country) => {
             return (
               <option key={country.id} value={country.id}>

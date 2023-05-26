@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className={style.container}>
-      <h1>Estoy en Home</h1>
+      <h1>Countries</h1>
 
       <div className={style.searchBar}>
         <SearchBar />
@@ -51,21 +51,23 @@ const Home = () => {
         cardsPerPage={cardsPerPage}
         setCurrentPage={setCurrentPage}
       /> */}
-      <div>
-        <PaginationV2
-          totalCards={showCountries.length} // Total Cards length del objeto todos los paises
-          cardsPerPage={cardsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-          setCardsPerPage={setCardsPerPage}
-        />
+      <div className={style.varios}>
+        <div className={style.PaginationV2}>
+          <PaginationV2
+            totalCards={showCountries.length} // Total Cards length del objeto todos los paises
+            cardsPerPage={cardsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            setCardsPerPage={setCardsPerPage}
+          />
+        </div>
         <div className={style.filterAndCards}>
           <div className={style.filtersBar}>
             <FiltersBar setCurrentPage={setCurrentPage} />
           </div>
-        </div>
-        <div className={style.cardsContainer}>
-          <CardsContainer showCountries={currentCards} />
+          <div className={style.cardsContainer}>
+            <CardsContainer showCountries={currentCards} />
+          </div>
         </div>
       </div>
     </div>
