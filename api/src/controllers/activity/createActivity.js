@@ -6,12 +6,16 @@ const createActivity = async ({
   duration,
   season,
   countries,
+  images,
+  description,
 }) => {
   const newActivity = await Activity.create({
     name,
     difficulty,
     duration,
     season,
+    images,
+    description,
   });
 
   newActivity.addCountries(countries);

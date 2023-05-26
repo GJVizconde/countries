@@ -30,6 +30,23 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM("Summer", "Autumn/Fall", "Winter", "Spring"),
         allowNull: false,
       },
+      images: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: true,
+        validate: {
+          isURL(value) {
+            if (value && !/^https?:\/\/\S+$/.test(value)) {
+              throw new Error("Invalid URL format");
+            }
+          },
+        },
+      },
+      description: {
+        type: DataTypes.STRING(500),
+        unique: true,
+        allowNull: false,
+      },
     },
     { timestamps: false }
   );

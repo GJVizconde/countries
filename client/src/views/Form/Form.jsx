@@ -32,7 +32,9 @@ const Form = () => {
     difficulty: "0",
     duration: "",
     season: "",
-    countries: [], // Se agregó en ambos countries
+    countries: [], // Se agregó en ambos input y error
+    images: "",
+    description: "",
   });
 
   const [errors, setErrors] = useState({
@@ -40,7 +42,9 @@ const Form = () => {
     difficulty: "",
     duration: "",
     season: "",
-    countries: [],
+    countries: [], // Se agregó en ambos input y error
+    images: "",
+    description: "",
   });
 
   useEffect(() => {
@@ -73,6 +77,8 @@ const Form = () => {
       duration: "",
       season: "",
       countries: [],
+      images: "",
+      description: "",
     });
 
     setIdArray([]);
@@ -90,7 +96,9 @@ const Form = () => {
       !errors.name &&
       !errors.difficulty &&
       !errors.duration &&
-      !errors.season
+      !errors.season &&
+      !errors.images &&
+      !errors.description
     ) {
       alert("The activity was created successfully."); //! Alert de Prueba antes de poner el axios
 
@@ -192,6 +200,37 @@ const Form = () => {
             </select>
             {errors.season && <p style={{ color: "red" }}>{errors.season}</p>}
           </div>
+          <div className={style.images}>
+            <label htmlFor="url" className={style.labelText}>
+              Image:
+            </label>
+            <br />
+            <input
+              type="url"
+              name="images"
+              value={input.images}
+              onChange={handleChange}
+              className={style.inputImages}
+            />
+            {errors.images && <p style={{ color: "red" }}>{errors.images}</p>}
+          </div>
+          <div className={style.description}>
+            <label htmlFor="description" className={style.labelText}>
+              Description:
+            </label>
+            <br />
+            <textarea
+              type="text"
+              name="description"
+              placeholder="Max. 500 characters"
+              value={input.description}
+              onChange={handleChange}
+              className={style.inputDescription}
+            />
+            {errors.description && (
+              <p style={{ color: "red" }}>{errors.description}</p>
+            )}
+          </div>
           <div>
             <CountriesForm
               idArray={idArray}
@@ -215,7 +254,9 @@ const Form = () => {
                 errors.name ||
                 errors.difficulty ||
                 errors.duration ||
-                errors.season
+                errors.season ||
+                errors.images ||
+                errors.description
               }
             >
               Create Activity

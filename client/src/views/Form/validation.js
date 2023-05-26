@@ -44,5 +44,23 @@ export const validate = (input) => {
     errors.season = "Select a valid option";
   }
 
+  //!IMAGES
+
+  if (input.images.length > 255) {
+    errors.images = "The url can not be longer than 255 characters";
+  }
+
+  const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+
+  if (input.images && !urlPattern.test(input.images)) {
+    errors.images = "Please enter a valid URL for images";
+  }
+
+  //!DESCRIPTION
+
+  if (input.description.length > 500) {
+    errors.description = "The text can not be longer than 500 characters";
+  }
+
   return errors;
 };

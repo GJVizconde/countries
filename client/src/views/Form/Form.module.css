@@ -14,7 +14,7 @@
 }
 
 .form .activity{
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 .labelText {
@@ -47,6 +47,33 @@
   .season{
     margin-top: 1.6em;
   }
+
+  .images{
+    margin-top: 1.6em;
+  }
+
+  .inputImages {
+    width: 180px;
+  }
+
+  .inputImages:focus {
+    outline: none;
+  }
+
+  .description{
+    margin-top: 1.6em;
+  }
+
+  .inputDescription {
+    width: 180px;
+    height: 100px;
+  }
+
+  .inputDescription:focus {
+    outline: none;
+  }
+  
+
 
   .beginner{
     color: rgb(128, 244, 32);
