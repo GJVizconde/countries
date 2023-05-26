@@ -59,6 +59,9 @@ const Detail = () => {
                   id={activity.id}
                   name={activity.name}
                   images={activity.images}
+                  duration={activity.duration}
+                  season={activity.season}
+                  difficulty={activity.difficulty}
                 />
               );
             })}

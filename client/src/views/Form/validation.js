@@ -10,6 +10,12 @@ export const validate = (input) => {
     errors.name = "The name can not be longer than 34 characters";
   }
 
+  const specialChars = /[!@#$%^&*(),.?":{}|<>]/;
+
+  if (specialChars.test(input.name)) {
+    errors.name = "The name can not contain special characters";
+  }
+
   //! DIFFICULTY
 
   if (parseInt(input.difficulty) < 1) {
@@ -60,6 +66,10 @@ export const validate = (input) => {
 
   if (input.description.length > 500) {
     errors.description = "The text can not be longer than 500 characters";
+  }
+
+  if (specialChars.test(input.description)) {
+    errors.description = "The text can not contain special characters";
   }
 
   return errors;
