@@ -44,7 +44,7 @@ const Home = () => {
       <h1>Countries</h1>
 
       <div className={style.searchBar}>
-        <SearchBar />
+        <SearchBar setCurrentPage={setCurrentPage} />
       </div>
       {/* <Pagination
         totalCards={showCountries.length} // Total Cards length del objeto todos los paises

@@ -37,7 +37,7 @@ const Form = () => {
 
   const [errors, setErrors] = useState({
     name: "",
-    difficulty: "0",
+    difficulty: "",
     duration: "",
     season: "",
     countries: [],
@@ -124,6 +124,7 @@ const Form = () => {
               onChange={handleChange}
               className={style.inputName}
             />
+            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
           </div>
           <div className={style.difficulty}>
             <label className={style.labelText} htmlFor="difficulty">
@@ -153,6 +154,9 @@ const Form = () => {
             ) : (
               <p></p>
             )}
+            {errors.difficulty && (
+              <p style={{ color: "red" }}>{errors.difficulty}</p>
+            )}
           </div>
           <div className={style.duration}>
             <label className={style.labelText} htmlFor="duration">
@@ -170,6 +174,9 @@ const Form = () => {
               onChange={handleChange}
               className={style.inputDuration}
             />
+            {errors.duration && (
+              <p style={{ color: "red" }}>{errors.duration}</p>
+            )}
           </div>
           <div className={style.season}>
             <label className={style.labelText} htmlFor="season">
@@ -183,6 +190,7 @@ const Form = () => {
               <option value="Summer">Summer</option>
               <option value="Winter">Winter</option>
             </select>
+            {errors.season && <p style={{ color: "red" }}>{errors.season}</p>}
           </div>
           <div>
             <CountriesForm
