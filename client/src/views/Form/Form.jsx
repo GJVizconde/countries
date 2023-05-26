@@ -153,15 +153,15 @@ const Form = () => {
               className={style.inputDifficulty}
             />
             {input.difficulty === "1" ? (
-              <p className={style.beginner}>1</p>
+              <p className={style.beginner}>Beginner</p>
             ) : input.difficulty === "2" ? (
-              <p className={style.amateur}>2</p>
+              <p className={style.amateur}>Amateur</p>
             ) : input.difficulty === "3" ? (
-              <p className={style.normal}>3</p>
+              <p className={style.normal}>Normal</p>
             ) : input.difficulty === "4" ? (
-              <p className={style.professional}>4</p>
+              <p className={style.professional}>Professional</p>
             ) : input.difficulty === "5" ? (
-              <p className={style.expert}>5</p>
+              <p className={style.expert}>Expert</p>
             ) : (
               <p></p>
             )}
