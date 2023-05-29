@@ -9,7 +9,7 @@ import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:3001";
 
-axios.defaults.baseURL = "countriesfront-production-bcda.up.railway.app";
+axios.defaults.baseURL = "countries-production-4d2a.up.railway.app";
 
 ReactDOM.render(
   <Provider store={store}>
